@@ -21,9 +21,11 @@ export const add = mutation({
     if (!orgId) {
       throw new Error("Missing organization");
     }
-    const userId = await ctx.db.insert("users", {
-      name: "ThaiNitti",
-    });
-    return userId;
+
+    throw new Error("Tracking Test");
+    // const userId = await ctx.db.insert("users", {
+    //   name: "ThaiNitti",
+    // });
+    // return userId;
   },
 });
