@@ -17,6 +17,7 @@ import { z } from "zod";
 import {
   contactSessionIdAtomFamily,
   organizationIdAtom,
+  screenAtom,
 } from "../../atoms/widget-atoms";
 import { WidgetHeader } from "../components/widget-header";
 
@@ -25,9 +26,9 @@ const formSchema = z.object({
   email: z.string().email("Invalid email address"),
 });
 
-const organizationId = "123";
-
 export const WidgetAuthScreen = () => {
+  const setScreen = useSetAtom(screenAtom);
+
   const organizationId = useAtomValue(organizationIdAtom);
 
   const setContactSessionId = useSetAtom(
@@ -66,6 +67,7 @@ export const WidgetAuthScreen = () => {
       metadata,
     });
     setContactSessionId(contactSessionId);
+    setScreen("selection");
   };
 
   return (
