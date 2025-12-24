@@ -1,11 +1,12 @@
 "use client";
+import { screenAtom } from "@/modules/widget/atoms/widget-atoms";
+import { WidgetAuthScreen } from "@/modules/widget/ui/screens/widget-auth-screen";
+import { WidgetChatScreen } from "@/modules/widget/ui/screens/widget-chat-screen";
+import { WidgetErrorScreen } from "@/modules/widget/ui/screens/widget-error-screen";
+import { WidgetInboxScreen } from "@/modules/widget/ui/screens/widget-inbox-screen";
+import { WidgetLoadingScreen } from "@/modules/widget/ui/screens/widget-loading-screen";
+import { WidgetSelectionScreen } from "@/modules/widget/ui/screens/widget-selection-screen";
 import { useAtomValue } from "jotai";
-import { screenAtom } from "../../atoms/widget-atoms";
-import { WidgetAuthScreen } from "../screens/widget-auth-screen";
-import { WidgetChatScreen } from "../screens/widget-chat-screen";
-import { WidgetErrorScreen } from "../screens/widget-error-screen";
-import { WidgetLoadingScreen } from "../screens/widget-loading-screen";
-import { WidgetSelectionScreen } from "../screens/widget-selection-screen";
 
 interface Props {
   organizationId: string | null;
@@ -19,7 +20,7 @@ export const WidgetView = ({ organizationId }: Props) => {
     loading: <WidgetLoadingScreen organizationId={organizationId} />,
     auth: <WidgetAuthScreen />,
     voice: <p>TODO: Voice</p>,
-    inbox: <p>TODO: Inbox</p>,
+    inbox: <WidgetInboxScreen />,
     selection: <WidgetSelectionScreen />,
     chat: <WidgetChatScreen />,
     contact: <p>TODO: Contact</p>,
